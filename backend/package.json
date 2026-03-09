@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@distube/ytdl-core": "^4.16.12",
+    "axios": "^1.13.6",
+    "cobalt-api": "^1.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "form-data": "^4.0.5",
+    "play-dl": "^1.9.7",
+    "playwright": "^1.58.2",
+    "puppeteer": "^24.38.0",
+    "yt-dlp-wrap": "^2.3.12"
+  }
+}

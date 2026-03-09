@@ -1,0 +1,21 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:5175",
+  "executionArgs": {
+    "projectName": "wab-us",
+    "projectPath": "c:\\Users\\om jai jagannath\\Videos\\wab\\wab-us",
+    "testIds": [
+      "TC021",
+      "TC022"
+    ],
+    "additionalInstruction": "The frontend dev server is running on http://localhost:5176. Generate and execute code for these new tests, focusing on assertion accuracy and navigation waits.",
+    "serverMode": "development",
+    "envs": {
+      "API_KEY": "sk-user-WPCbNzpf1glhj7bmD3uC4Sx4KtkY0rkn_oopzCxSeuGwReJxLy9bqsOJTbKOxRIUSPloj03CQg82L46823q8E_-8cwf-8Wl9jMSPPHZgvi03EEUaeDUq6mKzOwaFJTro620"
+    }
+  },
+  "serverPort": 58309,
+  "proxy": "http://aa55348f-a803-4b52-a2b8-504aae5d4c24:0oXFEg3oTZAaMp6kKDjEquY4dqr2rfDC@tun.testsprite.com:8080"
+}

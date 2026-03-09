@@ -1,0 +1,34 @@
+[
+  {
+    "projectId": "4cd27ad8-cb79-4de2-be86-a5a36985d088",
+    "testId": "9615dd3c-f0c3-4401-9161-8b9403aa7c5a",
+    "userId": "34688418-1001-70ab-0a49-5a2f927a85cf",
+    "title": "TC021-Show Content Protected message on /saved when signed out",
+    "description": "Verifies that navigating to /saved without being signed in displays a 'Content Protected' message.",
+    "code": "import asyncio\nfrom playwright import async_api\nfrom playwright.async_api import expect\n\nasync def run_test():\n    pw = None\n    browser = None\n    context = None\n\n    try:\n        # Start a Playwright session in asynchronous mode\n        pw = await async_api.async_playwright().start()\n\n        # Launch a Chromium browser in headless mode with custom arguments\n        browser = await pw.chromium.launch(\n            headless=True,\n            args=[\n                \"--window-size=1280,720\",         # Set the browser window size\n                \"--disable-dev-shm-usage\",        # Avoid using /dev/shm which can cause issues in containers\n                \"--ipc=host\",                     # Use host-level IPC for better stability\n                \"--single-process\"                # Run the browser in a single process mode\n            ],\n        )\n\n        # Create a new browser context (like an incognito window)\n        context = await browser.new_context()\n        context.set_default_timeout(5000)\n\n        # Open a new page in the browser context\n        page = await context.new_page()\n\n        # Interact with the page elements to simulate user flow\n        # -> Navigate to http://localhost:5175\n        await page.goto(\"http://localhost:5175\", wait_until=\"commit\", timeout=10000)\n        \n        # -> Navigate to /saved (http://localhost:5175/saved) and then verify the two texts 'Content Protected' and 'Please sign in to view your saved URLs.' are visible.\n        await page.goto(\"http://localhost:5175/saved\", wait_until=\"commit\", timeout=10000)\n        \n        # --> Assertions to verify final state\n        frame = context.pages[-1]\n        frame = page.main_frame()\n        assert \"/saved\" in frame.url\n        saved_history = frame.locator('xpath=/html/body/div[1]/div/nav/div/div/div[1]/a[4]')\n        assert await saved_history.is_visible(), 'Saved History link should be visible to confirm page loaded'\n        raise AssertionError('Missing elements: xpaths for texts \"Content Protected\" and \"Please sign in to view your saved URLs.\" are not present in the available elements list; cannot perform text visibility assertions.')\n        await asyncio.sleep(5)\n\n    finally:\n        if context:\n            await context.close()\n        if browser:\n            await browser.close()\n        if pw:\n            await pw.stop()\n\nasyncio.run(run_test())\n    ",
+    "testStatus": "PASSED",
+    "testError": "",
+    "testType": "FRONTEND",
+    "createFrom": "mcp",
+    "priority": "High",
+    "testVisualization": "https://testsprite-videos.s3.us-east-1.amazonaws.com/34688418-1001-70ab-0a49-5a2f927a85cf/1772883205520752//tmp/test_task/result.webm",
+    "created": "2026-03-07T11:31:09.666Z",
+    "modified": "2026-03-07T11:33:25.643Z"
+  },
+  {
+    "projectId": "4cd27ad8-cb79-4de2-be86-a5a36985d088",
+    "testId": "4cdbdb72-b60d-4f85-871e-500c89afdc8b",
+    "userId": "34688418-1001-70ab-0a49-5a2f927a85cf",
+    "title": "TC022-Footer renders correctly on the Home Page",
+    "description": "Verifies that the footer component is present at the bottom of the landing page.",
+    "code": "import asyncio\nfrom playwright import async_api\nfrom playwright.async_api import expect\n\nasync def run_test():\n    pw = None\n    browser = None\n    context = None\n\n    try:\n        # Start a Playwright session in asynchronous mode\n        pw = await async_api.async_playwright().start()\n\n        # Launch a Chromium browser in headless mode with custom arguments\n        browser = await pw.chromium.launch(\n            headless=True,\n            args=[\n                \"--window-size=1280,720\",         # Set the browser window size\n                \"--disable-dev-shm-usage\",        # Avoid using /dev/shm which can cause issues in containers\n                \"--ipc=host\",                     # Use host-level IPC for better stability\n                \"--single-process\"                # Run the browser in a single process mode\n            ],\n        )\n\n        # Create a new browser context (like an incognito window)\n        context = await browser.new_context()\n        context.set_default_timeout(5000)\n\n        # Open a new page in the browser context\n        page = await context.new_page()\n\n        # Interact with the page elements to simulate user flow\n        # -> Navigate to http://localhost:5175\n        await page.goto(\"http://localhost:5175\", wait_until=\"commit\", timeout=10000)\n        \n        # -> Navigate to http://localhost:5176 to load the landing page.\n        await page.goto(\"http://localhost:5176\", wait_until=\"commit\", timeout=10000)\n        \n        # --> Assertions to verify final state\n        frame = context.pages[-1]\n        # Scroll to the bottom of the page\n        await page.evaluate(\"window.scrollTo(0, document.body.scrollHeight)\")\n        # Wait for the footer SVG inside the footer to become visible\n        await frame.locator('xpath=/html/body/div[1]/div/footer/div/div/svg').wait_for(state='visible', timeout=5000)\n        assert await frame.locator('xpath=/html/body/div[1]/div/footer/div/div/svg').is_visible()\n        await asyncio.sleep(5)\n\n    finally:\n        if context:\n            await context.close()\n        if browser:\n            await browser.close()\n        if pw:\n            await pw.stop()\n\nasyncio.run(run_test())\n    ",
+    "testStatus": "PASSED",
+    "testError": "",
+    "testType": "FRONTEND",
+    "createFrom": "mcp",
+    "priority": "Medium",
+    "testVisualization": "https://testsprite-videos.s3.us-east-1.amazonaws.com/34688418-1001-70ab-0a49-5a2f927a85cf/1772883281104463//tmp/test_task/result.webm",
+    "created": "2026-03-07T11:31:09.672Z",
+    "modified": "2026-03-07T11:34:41.237Z"
+  }
+]

@@ -1,0 +1,736 @@
+[
+  {
+    "id": "TC001",
+    "title": "Home hero CTA navigates to the URL downloader page",
+    "description": "Verifies the hero section is visible on the Home page and the \"Start Downloading\" CTA routes the user to /url.",
+    "category": "Home Landing Page",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Saver-UR\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Start Downloading\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start Downloading\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/url\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Next Step\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Home page shows key feature highlights",
+    "description": "Verifies the Home page displays the three feature highlight items as visible text content.",
+    "category": "Home Landing Page",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Universal\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Fast\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Safe\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Start Downloading\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "Bottom CTA \"Try it out\" navigates to /url",
+    "description": "Verifies the user can scroll to the bottom call-to-action and use \"Try it out\" to reach the URL downloader page.",
+    "category": "Home Landing Page",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the bottom of the page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Try it out\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Try it out\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/url\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Next Step\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Start Downloading -> UrlPage empty input shows validation error",
+    "description": "Verifies that after navigating from Home to /url, attempting to continue with an empty URL shows a visible validation message.",
+    "category": "Home Landing Page",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start Downloading\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/url\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Next Step\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"valid URL\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/url\""
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Home page is reachable and branded content loads",
+    "description": "Verifies the Home page loads without a broken state by checking core hero branding and at least one CTA is visible.",
+    "category": "Home Landing Page",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify page title contains \"Saver\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Saver-UR\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Start Downloading\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Repeated CTA click consistently routes to /url",
+    "description": "Verifies that clicking \"Start Downloading\" from the Home page reliably routes to /url (guards against intermittent navigation issues).",
+    "category": "Home Landing Page",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start Downloading\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/url\""
+      },
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Start Downloading\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/url\""
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Fetch and display metadata preview for a valid media URL (happy path)",
+    "description": "Verifies that submitting a valid URL shows a loading state and then renders a metadata preview with key fields.",
+    "category": "URL Paste and Metadata Fetch",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /url"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Next Step\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"https://example.com/sample-video\" into the URL input field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Next Step\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"loading spinner\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"metadata preview\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"thumbnail preview\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"formats\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Metadata preview includes title text after successful fetch",
+    "description": "Verifies that the preview renders a visible title after a successful metadata fetch.",
+    "category": "URL Paste and Metadata Fetch",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /url"
+      },
+      {
+        "type": "action",
+        "description": "Type \"https://example.com/sample-video\" into the URL input field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Next Step\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"metadata preview\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"title\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Title\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Quality options are shown for a YouTube-style URL and can be selected",
+    "description": "Verifies that a YouTube/direct-media URL shows quality options in the metadata preview and that a user can select one.",
+    "category": "URL Paste and Metadata Fetch",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /url"
+      },
+      {
+        "type": "action",
+        "description": "Type \"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" into the URL input field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Next Step\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"loading spinner\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"metadata preview\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"quality options\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Select the first available option from the quality options dropdown"
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Invalid URL shows an error message after attempting preview fetch",
+    "description": "Verifies that malformed input results in a visible error message instead of a metadata preview.",
+    "category": "URL Paste and Metadata Fetch",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /url"
+      },
+      {
+        "type": "action",
+        "description": "Type \"not-a-valid-url\" into the URL input field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Next Step\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"loading spinner\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"error message\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"metadata preview\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Empty URL submission is blocked or results in a visible validation/error state",
+    "description": "Verifies the UI prevents submitting an empty URL or shows a user-facing error.",
+    "category": "URL Paste and Metadata Fetch",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /url"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Next Step\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Next Step\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"error message\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"metadata preview\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "User can proceed to step 2 after metadata preview success",
+    "description": "Verifies that after successful metadata fetch, the user can proceed to the next step in the downloader flow.",
+    "category": "URL Paste and Metadata Fetch",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /url"
+      },
+      {
+        "type": "action",
+        "description": "Type \"https://example.com/sample-video\" into the URL input field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Next Step\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"metadata preview\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Proceed to step 2\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Step 2\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Media preview/thumbnail and metadata are visible before downloading on /url",
+    "description": "Verifies the user can view a preview (or thumbnail/metadata) during configuration before triggering the download.",
+    "category": "Media Download Configuration and Download",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /url"
+      },
+      {
+        "type": "action",
+        "description": "Type \"https://example.com/media\" into the URL input field"
+      },
+      {
+        "type": "action",
+        "description": "Click the button to continue to the configuration/preview step"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Media preview\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Thumbnail\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the \"Download Media\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Download Media\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "Quality dropdown only appears when qualities are available for the URL",
+    "description": "Verifies that the quality selection control is conditionally shown only for supported URLs and absent for generic URLs.",
+    "category": "Media Download Configuration and Download",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /url"
+      },
+      {
+        "type": "action",
+        "description": "Type \"https://example.com/plain-image\" into the URL input field"
+      },
+      {
+        "type": "action",
+        "description": "Click the button to continue to the configuration/preview step"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Quality\" is not visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the option in the URL summary bar to change the URL"
+      },
+      {
+        "type": "action",
+        "description": "Type \"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" into the URL input field"
+      },
+      {
+        "type": "action",
+        "description": "Click the button to continue to the configuration/preview step"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Quality\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "View saved history list and storage usage indicator (authenticated)",
+    "description": "Verifies an authenticated user can access /saved and see saved history cards plus the storage usage indicator.",
+    "category": "Saved History",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email or username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Sign in\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Saved\" in the site navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/saved\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Storage usage\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC016",
+    "title": "Delete a single saved item via card delete icon and confirm removal",
+    "description": "Verifies deleting one saved history entry removes its card and updates the visible storage usage indicator.",
+    "category": "Saved History",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email or username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Sign in\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Saved\" in the site navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Storage usage\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the delete icon on the first saved history card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Storage usage\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC017",
+    "title": "Storage warning appears when usage exceeds 4MB (if present)",
+    "description": "Verifies that a visible storage warning is shown on the Saved page when storage usage is over the 4MB threshold.",
+    "category": "Saved History",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email or username field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Sign in\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Saved\" in the site navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/saved\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"warning\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC018",
+    "title": "Navbar logo returns user to Home from another page",
+    "description": "Verifies that clicking the Saver-UR logo in the navbar navigates to the Home route.",
+    "category": "Navbar Navigation",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /url"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/url\""
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Saver-UR\" logo in the navbar"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Saver-UR\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC019",
+    "title": "Navbar link to URL Downloader opens /url",
+    "description": "Verifies that the \"URL Downloader\" navbar link navigates to the URL downloader page.",
+    "category": "Navbar Navigation",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/\""
+      },
+      {
+        "type": "action",
+        "description": "Click the \"URL Downloader\" nav link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/url\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Download\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC020",
+    "title": "Navigate across multiple navbar links in sequence",
+    "description": "Verifies the user can move between key pages using navbar links without direct URL navigation after initial load.",
+    "category": "Navbar Navigation",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"URL Downloader\" nav link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/url\""
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Download Entry\" nav link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/download\""
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Home\" nav link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/\""
+      }
+    ]
+  },
+  {
+    "id": "TC021",
+    "title": "Show Content Protected message on /saved when signed out",
+    "description": "Verifies that navigating to /saved without being signed in displays a 'Content Protected' message.",
+    "category": "Saved History",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /saved"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Content Protected\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Please sign in to view your saved URLs.\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC022",
+    "title": "Footer renders correctly on the Home Page",
+    "description": "Verifies that the footer component is present at the bottom of the landing page.",
+    "category": "Home Landing Page",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the bottom of the page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"footer\" is visible"
+      }
+    ]
+  }
+]

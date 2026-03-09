@@ -1,0 +1,31 @@
+{
+  "name": "wab-us",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently --kill-others-on-fail \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:backend": "node backend/server.js",
+    "start:frontend": "npm run dev --prefix frontend",
+    "build": "npm run build --prefix frontend && shx rm -rf public && shx cp -r frontend/dist ./public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@distube/ytdl-core": "^4.16.12",
+    "axios": "^1.13.6",
+    "cobalt-api": "^1.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "form-data": "^4.0.5",
+    "play-dl": "^1.9.7",
+    "yt-dlp-wrap": "^2.3.12"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "shx": "^0.4.0"
+  }
+}
