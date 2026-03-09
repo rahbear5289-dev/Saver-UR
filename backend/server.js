@@ -186,6 +186,10 @@ app.get('/api/preview', async (req, res) => {
     const isAudio = contentType.startsWith('audio/');
     const isVideo = contentType.startsWith('video/');
 
+    if (!isImage && !isAudio && !isVideo) {
+      throw new Error(`Content type ${contentType} is not direct media.`);
+    }
+
     const ext = extFromContentType(contentType);
     const mediaType = isImage ? 'image' : isAudio ? 'audio' : 'video';
 
@@ -295,7 +299,11 @@ app.get('/api/download', async (req, res) => {
       console.error('yt-dlp stream error:', err.message);
       // Only fallback if headers not sent yet
       if (!res.headersSent) {
-        return tryDirectDownload(url, filename, type, res);
+        if (directType) {
+          return tryDirectDownload(url, filename, type, res);
+        } else {
+          return res.status(500).json({ error: 'Failed to extract media from the URL.', details: err.message });
+        }
       }
     });
 
@@ -305,10 +313,15 @@ app.get('/api/download', async (req, res) => {
     return;
   } catch (ytdlpErr) {
     console.error('yt-dlp download error:', ytdlpErr.message);
+    if (!res.headersSent) {
+      if (directType) {
+        return tryDirectDownload(url, filename, type, res);
+      } else {
+        return res.status(500).json({ error: 'yt-dlp execution failed.', details: ytdlpErr.message });
+      }
+    }
   }
 
-  // --- Step 3: Direct HTTP stream fallback ---
-  return tryDirectDownload(url, filename, type, res);
 });
 
 // ---- Direct download helper ----
