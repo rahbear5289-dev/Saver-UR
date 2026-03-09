@@ -244,11 +244,23 @@ app.get('/api/download', async (req, res) => {
 
   // --- Step 1: If it's a direct media URL (image/audio/video link), stream directly ---
   const directType = getDirectMediaType(url);
-  if (directType === 'image' || isImage) {
+  const isDirectMedia = directType === 'image' || directType === 'video' || directType === 'audio';
+  const isDirect = formatId === 'direct';
+
+  if (isImage || directType === 'image' || isDirect || directType === 'video' || directType === 'audio') {
     try {
       const response = await axiosInstance.get(url, { responseType: 'stream' });
-      const contentType = response.headers['content-type'] || 'image/jpeg';
-      const ext = extFromContentType(contentType, '.jpg');
+      const contentType = response.headers['content-type'] || 'application/octet-stream';
+
+      let ext;
+      if (isImage || directType === 'image' || (isDirect && type === 'image')) {
+        ext = extFromContentType(contentType, '.jpg');
+      } else if (directType === 'audio' || (isDirect && type === 'audio')) {
+        ext = extFromContentType(contentType, '.mp3');
+      } else {
+        ext = extFromContentType(contentType, '.mp4');
+      }
+
       if (!filename.toLowerCase().endsWith(ext)) filename += ext;
 
       res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
@@ -259,9 +271,9 @@ app.get('/api/download', async (req, res) => {
       response.data.pipe(res);
       response.data.on('error', () => { try { res.end(); } catch {} });
       return;
-    } catch (imgErr) {
-      console.error('Direct image download failed:', imgErr.message);
-      return res.status(500).json({ error: 'Failed to download image', details: imgErr.message });
+    } catch (directErr) {
+      console.error('Direct media download failed:', directErr.message);
+      return res.status(500).json({ error: 'Failed to download media', details: directErr.message });
     }
   }
 

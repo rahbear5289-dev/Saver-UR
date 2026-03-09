@@ -30,8 +30,15 @@ const UrlInputForm = () => {
       // For social/YouTube platforms, default to video
       if (metadata.isYouTube || metadata.isSocial) {
         setMediaType('video');
+      } else if (metadata.mediaType) {
+        // Use mediaType returned by backend (image/video/audio)
+        setMediaType(metadata.mediaType);
+      } else if (metadata.contentType) {
+        if (metadata.contentType.includes('video')) setMediaType('video');
+        else if (metadata.contentType.includes('audio')) setMediaType('audio');
+        else setMediaType('image');
       } else {
-        setMediaType(metadata.contentType?.includes('video') ? 'video' : 'image');
+        setMediaType('video'); // default to video for yt-dlp sources
       }
       if (metadata.title) {
         setMediaName(metadata.title.replace(/[^a-zA-Z0-9 _-]/g, '').trim().slice(0, 60) || 'download');
@@ -42,7 +49,7 @@ const UrlInputForm = () => {
       setStep(2);
     } catch (err) {
       if (!err.response) {
-        setError('Could not connect to the backend server. Please make sure the backend is running on port 5000.');
+        setError('Could not connect to the backend server. Please check your internet connection or if the backend is running.');
       } else {
         setError(err.response?.data?.error || 'Failed to fetch media metadata. The URL might be restricted or invalid.');
       }
@@ -58,11 +65,9 @@ const UrlInputForm = () => {
 
     try {
       let finalType = mediaType;
-      const isSocialOrYT = mediaData?.isYouTube || mediaData?.isSocial;
-      if (isSocialOrYT) {
-        const selectedFormat = mediaData.formats?.find(f => String(f.id) === String(formatId));
-        if (selectedFormat && selectedFormat.type === 'audio') finalType = 'audio';
-        else finalType = 'video';
+      const selectedFormat = mediaData?.formats?.find(f => String(f.id) === String(formatId));
+      if (selectedFormat && selectedFormat.type) {
+        finalType = selectedFormat.type;
       }
 
       const downloadLink = getDownloadUrl(url, mediaName, finalType, formatId);
