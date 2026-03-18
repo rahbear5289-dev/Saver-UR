@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7f0df2",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#191022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/10 px-6 py-4 lg:px-20">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">movie</span>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight">StreamSave</h2>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">History</a>
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Login</a>
+</nav>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold transition-opacity hover:opacity-90">
+                        Get Started
+                    </button>
+</div>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<div class="px-6 lg:px-20 py-12 lg:py-24 max-w-[1200px] mx-auto">
+<div class="flex flex-col gap-10 lg:flex-row items-center lg:gap-16">
+<div class="flex flex-col gap-8 flex-1">
+<div class="flex flex-col gap-4 text-left">
+<h1 class="text-slate-900 dark:text-slate-100 text-4xl lg:text-6xl font-black leading-[1.1] tracking-tight">
+                                    Download your favorite <span class="text-primary">videos</span> in seconds
+                                </h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg lg:text-xl font-normal leading-relaxed max-w-[600px]">
+                                    The fastest and most reliable way to save videos from across the web. High quality, no watermarks, completely free.
+                                </p>
+</div>
+<!-- Input Field -->
+<div class="w-full max-w-[640px]">
+<div class="flex flex-col sm:flex-row gap-3 p-2 bg-white dark:bg-slate-800 rounded-xl shadow-xl shadow-primary/5 border border-primary/10">
+<div class="flex flex-1 items-center px-4 gap-3">
+<span class="material-symbols-outlined text-primary/60">link</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 text-base py-3" placeholder="Paste video URL here (YouTube, TikTok, Instagram...)" type="text"/>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-bold text-base transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">download</span>
+                                        Download
+                                    </button>
+</div>
+<p class="mt-3 text-xs text-slate-500 dark:text-slate-500 px-2">By using our service you accept our Terms of Service and Privacy Policy.</p>
+</div>
+</div>
+<!-- Hero Image/Graphic -->
+<div class="flex-1 w-full lg:max-w-[500px]">
+<div class="relative aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center overflow-hidden border border-primary/10" data-alt="Abstract purple geometric patterns with glowing elements">
+<div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,_var(--tw-gradient-from)_0%,_transparent_50%)]"></div>
+<span class="material-symbols-outlined text-primary text-9xl opacity-40">play_circle</span>
+<div class="absolute bottom-6 left-6 right-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-4 rounded-xl border border-white/20 shadow-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">Ready to Download</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">4K Resolution Detected</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Platforms Section -->
+<div class="bg-primary/5 py-16 border-y border-primary/5">
+<div class="px-6 lg:px-20 max-w-[1200px] mx-auto text-center">
+<h4 class="text-primary text-sm font-bold uppercase tracking-[0.2em] mb-8">Supported Platforms</h4>
+<div class="flex flex-wrap justify-center gap-6 lg:gap-12">
+<div class="flex items-center gap-3 bg-white dark:bg-slate-900 px-6 py-4 rounded-xl shadow-sm border border-primary/10 min-w-[180px] justify-center">
+<span class="material-symbols-outlined text-red-600 text-3xl">smart_display</span>
+<span class="text-slate-900 dark:text-slate-100 font-bold">YouTube</span>
+</div>
+<div class="flex items-center gap-3 bg-white dark:bg-slate-900 px-6 py-4 rounded-xl shadow-sm border border-primary/10 min-w-[180px] justify-center">
+<span class="material-symbols-outlined text-slate-900 dark:text-white text-3xl">music_note</span>
+<span class="text-slate-900 dark:text-slate-100 font-bold">TikTok</span>
+</div>
+<div class="flex items-center gap-3 bg-white dark:bg-slate-900 px-6 py-4 rounded-xl shadow-sm border border-primary/10 min-w-[180px] justify-center">
+<span class="material-symbols-outlined text-pink-600 text-3xl">photo_camera</span>
+<span class="text-slate-900 dark:text-slate-100 font-bold">Instagram</span>
+</div>
+<div class="flex items-center gap-3 bg-white dark:bg-slate-900 px-6 py-4 rounded-xl shadow-sm border border-primary/10 min-w-[180px] justify-center">
+<span class="material-symbols-outlined text-blue-600 text-3xl">social_leaderboard</span>
+<span class="text-slate-900 dark:text-slate-100 font-bold">Facebook</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Features Section -->
+<div class="px-6 lg:px-20 py-20 max-w-[1200px] mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-slate-900 dark:text-slate-100 text-3xl lg:text-4xl font-black mb-4">Why choose StreamSave?</h2>
+<p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Experience the ultimate video saving tool with these professional features, designed for power users.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col gap-4 p-8 rounded-2xl border border-primary/10 bg-white dark:bg-slate-900 transition-transform hover:-translate-y-1">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">hd</span>
+</div>
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">4K Quality</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Download videos in their original resolution up to 4K UHD with crystal clear audio quality.</p>
+</div>
+<div class="flex flex-col gap-4 p-8 rounded-2xl border border-primary/10 bg-white dark:bg-slate-900 transition-transform hover:-translate-y-1">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</div>
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">Ultra Speed</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Our advanced multi-threaded engine processes your requests instantly for lightning-fast downloads.</p>
+</div>
+<div class="flex flex-col gap-4 p-8 rounded-2xl border border-primary/10 bg-white dark:bg-slate-900 transition-transform hover:-translate-y-1">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">shield_lock</span>
+</div>
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">Secure &amp; Private</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">We respect your privacy. All processing is encrypted and no personal data is ever stored on our servers.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-400 py-12 px-6 lg:px-20 border-t border-slate-800">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-2 text-white">
+<span class="material-symbols-outlined text-2xl text-primary">movie</span>
+<span class="text-lg font-bold">StreamSave</span>
+</div>
+<div class="flex gap-8 text-sm">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact Support</a>
+</div>
+<p class="text-xs">© 2024 StreamSave. All rights reserved.</p>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

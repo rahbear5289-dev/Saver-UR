@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#7f0df2",
+              "background-light": "#f7f5f8",
+              "background-dark": "#191022",
+            },
+            fontFamily: {
+              "display": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<title>Video Downloader - Select Format</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="max-w-[800px] mx-auto w-full px-4 md:px-10 py-8">
+<!-- Back Link -->
+<div class="mb-6">
+<a class="flex items-center gap-2 text-primary font-medium hover:underline w-fit" href="#">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+<span>Go Back</span>
+</a>
+</div>
+<!-- Header Area -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/10 pb-6 mb-8">
+<div class="flex items-center gap-4">
+<div class="bg-primary p-2 rounded-lg text-white">
+<span class="material-symbols-outlined">download</span>
+</div>
+<h1 class="text-2xl font-bold leading-tight tracking-tight">Ready to Download</h1>
+</div>
+<button class="flex items-center justify-center rounded-lg h-10 bg-primary/10 text-primary hover:bg-primary/20 px-3 transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</header>
+<!-- Preview Card -->
+<div class="p-6 mb-8">
+<div class="flex flex-col md:flex-row items-stretch justify-between gap-6 rounded-xl bg-white dark:bg-slate-900 p-6 shadow-sm border border-primary/5">
+<div class="flex flex-[3_3_0px] flex-col justify-center gap-4">
+<div class="flex flex-col gap-2">
+<span class="text-primary text-xs font-bold uppercase tracking-wider">Video Ready</span>
+<h2 class="text-xl font-bold leading-tight">Mastering UI Motion: Advanced Principles</h2>
+<div class="flex items-center gap-4 mt-1">
+<div class="flex items-center gap-1 text-slate-500 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span>15:24</span>
+</div>
+<div class="flex items-center gap-1 text-slate-500 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-base">visibility</span>
+<span>4.2k views</span>
+</div>
+</div>
+</div>
+<button class="flex items-center justify-center rounded-lg h-10 px-6 bg-primary text-white hover:bg-primary/90 transition-colors w-fit gap-2 font-semibold">
+<span class="material-symbols-outlined">play_circle</span>
+<span>Preview Video</span>
+</button>
+</div>
+<div class="flex-1 min-w-[280px]">
+<div class="relative w-full aspect-video bg-cover bg-center rounded-lg overflow-hidden border border-primary/10 shadow-inner group" data-alt="Digital motion graphics with purple accents" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEakwTs2Tw4qyvyhQ2dILVRnlV5Z1_yUGJPslxR5BAn2QQ4ji8mYje6cMpWjXnW8hnS7_CEDLtd3BTbv7YlFqtsP6IAdu4PFqijpkY9DMJ6K2E4J6JUiLxT4ZjXGItkvbSJQhpAZz2C5O6WoNLzvN_9YXW2yLaPM7qnQn7pEXwpTTcwdWaz4xBD0BoB0oYU5eciqrigBdNZu0k-tCDGwOurH3bFK-MgZiifJeODOZlFD1loh0ZcujlNFPEQ0S21tCT2hO2kOYv45g");'>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl opacity-80">play_circle</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Format Selection Section -->
+<div class="space-y-4">
+<h3 class="text-lg font-bold leading-tight px-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">format_list_bulleted</span>
+                        Select Download Format
+                    </h3>
+<div class="grid gap-3">
+<!-- Video Option 1080p -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-900 border border-primary/10 px-5 py-4 rounded-xl hover:border-primary/40 transition-all justify-between group">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">video_library</span>
+</div>
+<div class="flex flex-col">
+<p class="font-semibold text-base">MP4 - 1080p <span class="ml-2 text-[10px] bg-primary/20 text-primary px-1.5 py-0.5 rounded uppercase font-bold">Full HD</span></p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Estimated size: 245.8 MB</p>
+</div>
+</div>
+<button class="flex items-center justify-center rounded-lg h-10 px-6 bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all font-semibold gap-2">
+<span class="material-symbols-outlined text-xl">download</span>
+<span>Download</span>
+</button>
+</div>
+<!-- Video Option 720p -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-900 border border-primary/10 px-5 py-4 rounded-xl hover:border-primary/40 transition-all justify-between group">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">video_file</span>
+</div>
+<div class="flex flex-col">
+<p class="font-semibold text-base">MP4 - 720p <span class="ml-2 text-[10px] bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-1.5 py-0.5 rounded uppercase font-bold">HD</span></p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Estimated size: 112.4 MB</p>
+</div>
+</div>
+<button class="flex items-center justify-center rounded-lg h-10 px-6 bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all font-semibold gap-2">
+<span class="material-symbols-outlined text-xl">download</span>
+<span>Download</span>
+</button>
+</div>
+<!-- Video Option 480p -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-900 border border-primary/10 px-5 py-4 rounded-xl hover:border-primary/40 transition-all justify-between group">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">movie</span>
+</div>
+<div class="flex flex-col">
+<p class="font-semibold text-base">MP4 - 480p <span class="ml-2 text-[10px] bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-1.5 py-0.5 rounded uppercase font-bold">SD</span></p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Estimated size: 64.2 MB</p>
+</div>
+</div>
+<button class="flex items-center justify-center rounded-lg h-10 px-6 bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all font-semibold gap-2">
+<span class="material-symbols-outlined text-xl">download</span>
+<span>Download</span>
+</button>
+</div>
+<!-- Audio Option MP3 -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-900 border border-primary/10 px-5 py-4 rounded-xl hover:border-primary/40 transition-all justify-between group">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">audiotrack</span>
+</div>
+<div class="flex flex-col">
+<p class="font-semibold text-base">MP3 - Audio <span class="ml-2 text-[10px] bg-primary/20 text-primary px-1.5 py-0.5 rounded uppercase font-bold">High Quality</span></p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Estimated size: 14.8 MB</p>
+</div>
+</div>
+<button class="flex items-center justify-center rounded-lg h-10 px-6 bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all font-semibold gap-2">
+<span class="material-symbols-outlined text-xl">download</span>
+<span>Download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer note -->
+<div class="mt-12 text-center text-slate-500 dark:text-slate-400 text-sm">
+<p>By downloading, you agree to our Terms of Service and Copyright Policy.</p>
+</div>
+</div>
+</div>
+</div>
+</body></html>

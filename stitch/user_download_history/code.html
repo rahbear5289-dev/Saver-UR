@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VideoDownloader - History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7f0df2",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#191022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/10 bg-white dark:bg-background-dark px-6 md:px-20 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">download_for_offline</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-tight">VideoDownloader</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<div class="hidden md:flex items-center gap-6 mr-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-bold text-primary" href="#">History</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Subscriptions</a>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-primary/10 text-primary hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-primary/10 text-primary hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+<div class="h-10 w-10 rounded-full border-2 border-primary/20 p-0.5">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-full w-full" data-alt="User profile avatar showing a smiling person" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAY9lwwC8TCC8xzWy2xqqqlzKkN570xutBm6exsFP2zOqvibs1sCWvekrlfLaqvztFabsv2SI9-I_B2niIbzQq-CFt_xk8W_xcWQpwQvHd8uBT8mxrQsp_Wl7S12NgSQpXIskFb9cPvcNX1hznpWHnA3_FhQLvvBXpX_TVe46bdz71umG3zZSe9A1DpXwFgxW-ilrRKQMRUs4hiWXbNC37yQxYk9clA4OCMyMLDYFpgkktZOVkpmPvbgCOW_-va9JOB2AD78oXYQhw");'>
+</div>
+</div>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-8">
+<div class="layout-content-container flex flex-col w-full max-w-[1200px] px-6 md:px-10 gap-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="flex flex-col gap-1">
+<h1 class="text-slate-900 dark:text-white tracking-tight text-3xl font-bold">Download History</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base">You have 128 successful downloads</p>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-sm">add</span>
+                                New Download
+                            </button>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col md:flex-row gap-3">
+<div class="flex-1">
+<label class="relative flex items-center w-full">
+<span class="material-symbols-outlined absolute left-4 text-slate-400">search</span>
+<input class="w-full h-12 pl-12 pr-4 rounded-xl border-none bg-white dark:bg-slate-800 shadow-sm focus:ring-2 focus:ring-primary/50 transition-all placeholder:text-slate-400" placeholder="Search by video title or channel..." type="text"/>
+</label>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2 md:pb-0">
+<button class="flex h-12 items-center gap-2 rounded-xl bg-primary text-white px-5 font-medium whitespace-nowrap">
+                                    All
+                                </button>
+<button class="flex h-12 items-center gap-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-5 font-medium whitespace-nowrap hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary">movie</span>
+                                    Movies
+                                </button>
+<button class="flex h-12 items-center gap-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-5 font-medium whitespace-nowrap hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary">music_note</span>
+                                    Music
+                                </button>
+<button class="flex h-12 items-center gap-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-5 font-medium whitespace-nowrap hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary">share</span>
+                                    Social
+                                </button>
+<button class="flex h-12 items-center justify-center w-12 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all border border-slate-100 dark:border-slate-700">
+<div class="relative aspect-video bg-slate-200 dark:bg-slate-700">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Cinematic landscape video thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBfsKBCVwDPNCr2gqtOv2pfo3fki4ik3VECXhaWy6JY4qtUPI-q5aKcPyG0Cjf6ex3RGvXPf8brLv7XxSvIM3NU3xfnkI2MccVQxg7f3DExGyEdvjga7xNcy8nhPvuPmE5hwy98hpEhrxJuD7OLl58WTmpRZC8wszYqqp40k9nkTJsCIB_TX7rsq9HXXPCc5SorS1iyQGr7PyNOqMPta244RQmHtFYAGBS2tjnk2pbraMCzMOhn8l0v89ydaC2egxRsj-3wTFAeRpU");'></div>
+<div class="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded font-bold">12:45</div>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl">play_circle</span>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white line-clamp-2 leading-tight">Mastering UI Design with Modern Tools: A Complete 2024 Guide</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Design Academy • 1.2M views</p>
+</div>
+<div class="flex items-center justify-between mt-1">
+<div class="flex flex-col">
+<span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Downloaded on</span>
+<span class="text-sm font-medium">Oct 24, 2023</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Size</span>
+<span class="text-sm font-medium">456 MB</span>
+</div>
+</div>
+<div class="flex gap-2 pt-2">
+<button class="flex-1 bg-primary text-white h-10 rounded-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined text-lg">visibility</span> View
+                                    </button>
+<button class="w-12 bg-primary/10 text-primary h-10 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined">download</span>
+</button>
+<button class="w-12 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 h-10 rounded-lg flex items-center justify-center hover:bg-red-50 hover:text-red-500 transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all border border-slate-100 dark:border-slate-700">
+<div class="relative aspect-video bg-slate-200 dark:bg-slate-700">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Vibrant concert stage lighting thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACCjzgEjCtWAgY4hqqW11jvS0HeJxrXoTXostjDPFYSRIOI5mpURpgUkZo0Yaipiq9XZwzO9Bi_xkz7iCfIzDhfrcjMLXCixEYga7b1XnN5k-JFZ18SE2VGAW-jiDLyrngDrA669MYWIw2uArqF2ZsUPejTyugZQZON5Rt8Dn7-pJJ6puWl6Vvz_wo12S_mBfUA9CG1RHF6ln2CCovapyrHYAD1TOfwIkfigoiIUEaXF-bbl46QgMPHC-L-KOhivnCPPE4kYXctsc");'></div>
+<div class="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded font-bold">04:20</div>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl">play_circle</span>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white line-clamp-2 leading-tight">Synthwave Horizons - Midnight City (Official Music Video)</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Electronic Vibes • 890K views</p>
+</div>
+<div class="flex items-center justify-between mt-1">
+<div class="flex flex-col">
+<span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Downloaded on</span>
+<span class="text-sm font-medium">Oct 22, 2023</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Size</span>
+<span class="text-sm font-medium">28 MB</span>
+</div>
+</div>
+<div class="flex gap-2 pt-2">
+<button class="flex-1 bg-primary text-white h-10 rounded-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined text-lg">visibility</span> View
+                                    </button>
+<button class="w-12 bg-primary/10 text-primary h-10 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined">download</span>
+</button>
+<button class="w-12 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 h-10 rounded-lg flex items-center justify-center hover:bg-red-50 hover:text-red-500 transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all border border-slate-100 dark:border-slate-700">
+<div class="relative aspect-video bg-slate-200 dark:bg-slate-700">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Action sports mountain biking thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZb54dBQo4bSA7BdnyXuDUh0PUKxrfVFuSjCmliG3IAyv2IBWsTiNpa686WpQhJCvsHKxR5OCz0xO4cBV-qx328GoAX5vEob65dP8j7iURDSk6HdproeVd-V0VB6ICMIbheMteY-IDaiX5NzchU5tWp9h3hLLfDFcDgAj0Q8JbQLMsHjzQU5JCfwlNqGtxpZscmzIkqLNGmionOljDSZ6mpEDhcejqf_S3TLtqWziA9Ahr7HtDmu3DU1f9udW1u4TagtxAIeCC6JE");'></div>
+<div class="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded font-bold">25:10</div>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl">play_circle</span>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white line-clamp-2 leading-tight">Extreme Nature: Exploring the Hidden Waterfalls of Iceland</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Wild Discovery • 2.4M views</p>
+</div>
+<div class="flex items-center justify-between mt-1">
+<div class="flex flex-col">
+<span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Downloaded on</span>
+<span class="text-sm font-medium">Oct 19, 2023</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Size</span>
+<span class="text-sm font-medium">1.2 GB</span>
+</div>
+</div>
+<div class="flex gap-2 pt-2">
+<button class="flex-1 bg-primary text-white h-10 rounded-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined text-lg">visibility</span> View
+                                    </button>
+<button class="w-12 bg-primary/10 text-primary h-10 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined">download</span>
+</button>
+<button class="w-12 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 h-10 rounded-lg flex items-center justify-center hover:bg-red-50 hover:text-red-500 transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all border border-slate-100 dark:border-slate-700">
+<div class="relative aspect-video bg-slate-200 dark:bg-slate-700">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Coding and technology workspace thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAx01qVsE1_1LSgNE9HzEn2rY4P-giN-lJ98SQrnm6VcH4GYOlssDJ2tQwMKIi3Vul9Eb__7b4Uo9EckV1IiJtao36kFfKIoF2amxZNEwlYZFEDB23m65gZfOmn59m5B-gm7hPXHkoQAx8nuT3gn8rACnxl7qe_bnvCgw-4DXopHinmhId_Hq5RS7Jyp4DRZtsSfsliCwzhSQv7RTxzf2yJ4KNIU--JvLDON8foqMloZK_MbUlWOjgoTs8pNb0E0dElCwfDf5q_qjs");'></div>
+<div class="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded font-bold">45:00</div>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl">play_circle</span>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white line-clamp-2 leading-tight">Advanced React Patterns: Build Better Apps Faster</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Code With Me • 150K views</p>
+</div>
+<div class="flex items-center justify-between mt-1">
+<div class="flex flex-col">
+<span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Downloaded on</span>
+<span class="text-sm font-medium">Oct 15, 2023</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Size</span>
+<span class="text-sm font-medium">890 MB</span>
+</div>
+</div>
+<div class="flex gap-2 pt-2">
+<button class="flex-1 bg-primary text-white h-10 rounded-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined text-lg">visibility</span> View
+                                    </button>
+<button class="w-12 bg-primary/10 text-primary h-10 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined">download</span>
+</button>
+<button class="w-12 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 h-10 rounded-lg flex items-center justify-center hover:bg-red-50 hover:text-red-500 transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all border border-slate-100 dark:border-slate-700">
+<div class="relative aspect-video bg-slate-200 dark:bg-slate-700">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Close up of computer code on a monitor" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAU7pnFD1B15VCwalfgwt26IX6UIuqwoE57z832rIKHMAx49KCjG_bk6_chFB0d-SSlsl7G5H93GpMREzaPZyXcA1TFESEjr_PyZSpiYy3cUgFEbtSA1dQQJaw6FMowI3-RPMuFzGYWvDRDEHUBV1s-mHcvujwmZw-tCdA97b0M4fUQsCbxSP01fm7Hj6MVEgQmjGTIjFXnTgByLzWJDF_73AWl1_Gv87X122phy3yF5DJfNzNv9TeGLHRdOHQps0ZcCM2yAvfZXwc");'></div>
+<div class="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded font-bold">08:15</div>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl">play_circle</span>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white line-clamp-2 leading-tight">The Future of AI: What to Expect in 2025</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Tech Trends • 500K views</p>
+</div>
+<div class="flex items-center justify-between mt-1">
+<div class="flex flex-col">
+<span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Downloaded on</span>
+<span class="text-sm font-medium">Oct 12, 2023</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Size</span>
+<span class="text-sm font-medium">120 MB</span>
+</div>
+</div>
+<div class="flex gap-2 pt-2">
+<button class="flex-1 bg-primary text-white h-10 rounded-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined text-lg">visibility</span> View
+                                    </button>
+<button class="w-12 bg-primary/10 text-primary h-10 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined">download</span>
+</button>
+<button class="w-12 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 h-10 rounded-lg flex items-center justify-center hover:bg-red-50 hover:text-red-500 transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group flex flex-col items-center justify-center bg-primary/5 dark:bg-primary/10 rounded-2xl border-2 border-dashed border-primary/20 p-8 min-h-[350px] transition-all hover:bg-primary/10">
+<div class="bg-primary/20 p-4 rounded-full text-primary mb-4">
+<span class="material-symbols-outlined text-4xl">add</span>
+</div>
+<p class="font-bold text-primary text-lg">New Download</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm text-center mt-2 max-w-[200px]">Paste a link to start downloading a new video</p>
+</div>
+</div>
+<div class="flex items-center justify-center gap-2 pt-4 pb-12">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary transition-colors">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary transition-colors">3</button>
+<span class="px-2 text-slate-400">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary transition-colors">12</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+<footer class="bg-white dark:bg-background-dark border-t border-slate-100 dark:border-slate-800 py-8 px-6 md:px-20 mt-auto">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 opacity-50">
+<span class="material-symbols-outlined text-primary">download_for_offline</span>
+<span class="font-bold">VideoDownloader</span>
+<span class="text-xs ml-2">© 2024 All rights reserved</span>
+</div>
+<div class="flex gap-8 text-sm text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+<a class="hover:text-primary" href="#">Help Center</a>
+<a class="hover:text-primary" href="#">API</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

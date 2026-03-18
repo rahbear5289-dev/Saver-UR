@@ -1,0 +1,11 @@
+node_modules/
+.env
+.DS_Store
+dist/
+build/
+backend/downloads/
+*.zip
+*.log
+.gemini/
+.agent/
+.agents/
