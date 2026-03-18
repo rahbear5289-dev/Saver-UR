@@ -12,12 +12,14 @@ app.use(express.json());
 // In-memory jobs map (Fallback for Queue)
 const jobs = new Map<string, any>();
 const downloadsDir = path.join(__dirname, 'downloads');
+if (!fs.existsSync(downloadsDir)) fs.mkdirSync(downloadsDir);
 
-if (!fs.existsSync(downloadsDir)) {
-  fs.mkdirSync(downloadsDir);
-}
+const YTDLP_PATH = process.platform === 'win32' 
+  ? path.join(__dirname, 'yt-dlp.exe') 
+  : 'yt-dlp'; // Use system yt-dlp on Linux/Render
 
-const YTDLP_PATH = path.join(__dirname, 'yt-dlp.exe');
+// Quick health check
+app.get('/api/health', (req, res) => res.json({ status: 'ok', platform: process.platform, node: process.version }));
 
 // Mock History
 const mockHistory = new Map<string, any[]>();
@@ -34,8 +36,9 @@ app.post('/api/fetch', async (req, res) => {
   // Processing async
   setImmediate(() => {
     try {
-      if (!fs.existsSync(YTDLP_PATH)) {
-        jobs.set(jobId, { status: 'error', error: 'yt-dlp not found' });
+      // Small check for binary only on windows, on linux we assume it's in PATH
+      if (process.platform === 'win32' && !fs.existsSync(YTDLP_PATH)) {
+        jobs.set(jobId, { status: 'error', error: 'yt-dlp.exe not found' });
         return;
       }
       const ytdlp = spawn(YTDLP_PATH, ['-j', url]);
@@ -166,7 +169,7 @@ app.get('/api/download-proxy', (req, res) => {
   ytdlp.stderr.on('data', () => {}); // silence stderr output
 });
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
-  console.log(`Backend running on http://localhost:${PORT}`);
+  console.log(`Backend running on port ${PORT}`);
 });

@@ -2,25 +2,32 @@ import { useState, useEffect } from 'react';
 import { Download, Search, Trash2, Eye, Plus, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useAuth } from '@clerk/react';
 
 const API_BASE = import.meta.env.VITE_API_BASE || 'https://saver-ur-1.onrender.com/api';
 
 const TABS = ['All', 'Movies', 'Music', 'Social'];
 
 export default function Dashboard() {
+  const { getToken, isSignedIn, isLoaded } = useAuth();
   const [tab, setTab] = useState('All');
   const [search, setSearch] = useState('');
   const [items, setItems] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchHistory();
-  }, []);
+    if (isLoaded) fetchHistory();
+  }, [isLoaded]);
 
   const fetchHistory = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`${API_BASE}/history`);
+      const headers: any = {};
+      if (isSignedIn) {
+        const token = await getToken();
+        if (token) headers.Authorization = `Bearer ${token}`;
+      }
+      const { data } = await axios.get(`${API_BASE}/history`, { headers });
       setItems(data.downloads || []);
     } catch (err) {
       console.error('Failed to fetch history', err);

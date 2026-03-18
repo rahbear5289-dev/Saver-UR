@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
+import { useAuth } from '@clerk/react';
 import { Youtube, Instagram, Facebook, Twitter, Link2, Loader2, Download, Play, Shield, Zap, MonitorPlay, Music, Film, ExternalLink, X as XIcon } from 'lucide-react';
 
 const API_BASE = import.meta.env.VITE_API_BASE || 'https://saver-ur-1.onrender.com/api';
@@ -19,6 +20,7 @@ const FEATURES = [
 ];
 
 const Home = () => {
+  const { getToken, isSignedIn } = useAuth();
   const [url, setUrl] = useState('');
   const [platform, setPlatform] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -90,15 +92,29 @@ const Home = () => {
 
   useEffect(() => {
     let iv: ReturnType<typeof setInterval>;
+    let retryCount = 0;
+    const MAX_RETRIES = 5;
+
     if (jobId && jobStatus === 'loading') {
       iv = setInterval(async () => {
         try {
           const { data } = await axios.get(`${API_BASE}/status/${jobId}`);
+          retryCount = 0; // Reset on success
+
           if (data.status === 'completed') {
             setJobStatus('completed');
             setJobData(data.metadata);
             clearInterval(iv);
-            // Save to history
+            
+            // Save to history (only if signed in or for anonymous as before)
+            const saveToHistory = async () => {
+              const headers: any = {};
+              if (isSignedIn) {
+                const token = await getToken();
+                if (token) headers.Authorization = `Bearer ${token}`;
+              }
+              axios.post(`${API_BASE}/history`, item, { headers }).catch(console.error);
+            };
             const item = {
               id: jobId,
               title: data.metadata.title,
@@ -108,18 +124,26 @@ const Home = () => {
               size: data.metadata.formats?.[0]?.filesize || 'Unknown',
               url: url
             };
-            axios.post(`${API_BASE}/history`, item).catch(console.error);
+            saveToHistory();
           } else if (data.status === 'error') {
             setJobStatus('error');
             setError('Processing failed: ' + data.error);
             clearInterval(iv);
           }
-        } catch {
-          setError('Failed to poll status.');
-          setJobStatus('error');
-          clearInterval(iv);
+        } catch (err: any) {
+          retryCount++;
+          console.warn(`Polling attempt ${retryCount} failed:`, err.message);
+          
+          if (retryCount >= MAX_RETRIES) {
+            setError('Lost connection to backend server — retrying...');
+            if (retryCount >= MAX_RETRIES + 5) {
+               setError('Failed to poll status. Check your server connection.');
+               setJobStatus('error');
+               clearInterval(iv);
+            }
+          }
         }
-      }, 1500);
+      }, 2000);
     }
     return () => clearInterval(iv);
   }, [jobId, jobStatus, url]);
