@@ -4,7 +4,13 @@ import axios from 'axios';
 import { useAuth } from '@clerk/react';
 import { Youtube, Instagram, Facebook, Twitter, Link2, Loader2, Download, Play, Shield, Zap, MonitorPlay, Music, Film, ExternalLink, X as XIcon } from 'lucide-react';
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://saver-ur-1.onrender.com/api';
+const getApiBase = () => {
+  let base = import.meta.env.VITE_API_BASE || 'https://saver-ur-1.onrender.com/api';
+  if (base.endsWith('/')) base = base.slice(0, -1);
+  if (!base.endsWith('/api')) base += '/api';
+  return base;
+};
+const API_BASE = getApiBase();
 
 const PLATFORMS = [
   { id: 'youtube', label: 'YouTube', icon: <Youtube className="w-5 h-5 text-red-500"/>, bg: 'bg-red-50' },

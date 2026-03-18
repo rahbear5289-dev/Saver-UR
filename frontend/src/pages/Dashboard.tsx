@@ -4,7 +4,13 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '@clerk/react';
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://saver-ur-1.onrender.com/api';
+const getApiBase = () => {
+  let base = import.meta.env.VITE_API_BASE || 'https://saver-ur-1.onrender.com/api';
+  if (base.endsWith('/')) base = base.slice(0, -1);
+  if (!base.endsWith('/api')) base += '/api';
+  return base;
+};
+const API_BASE = getApiBase();
 
 const TABS = ['All', 'Movies', 'Music', 'Social'];
 
