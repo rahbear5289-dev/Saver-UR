@@ -3,7 +3,7 @@ import { Download, Search, Trash2, Eye, Plus, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const API_BASE = 'https://saver-ur-1.onrender.com/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://saver-ur-1.onrender.com/api';
 
 const TABS = ['All', 'Movies', 'Music', 'Social'];
 
